@@ -2,12 +2,12 @@
   "name": "bq-api-node",
   "version": "1.0.0",
   "description": "## 1. Preâmbulo",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src/index.js --exec babel-node",
+    "dev": "nodemon index.js --exec babel-node",
     "test": "jest",
-    "build":"babel src --out-dir dist",
-    "start":"node src/index.js"
+    "build": "babel src --out-dir dist",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",

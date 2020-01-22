@@ -1,13 +1,12 @@
 const { Router } = require('express')
-const Order = require('../models/Order')
 const { Client } = require('pg')
 const routes = Router();
 
-routes.post('/orders', async (req, res) => {
-    const client = new Client(sequelize)
+routes.post('/users', async (req, res) => {
+    const client = new Client()
     await client.connect()
     const result = await client.query({
-        text: 'select * from orders;'
+        text: 'select * from Users;'
     })
     await client.end()
     res.send(result.rows)
