@@ -1,10 +1,11 @@
+'use strict';
 module.exports = (sequelize, DataTypes) => {
     const Order = sequelize.define('Order', {
-        id: { type: DataTypes.INTEGER, primaryKey: true },
-        name: { type: DataTypes.STRING, allowNull: false },
-        price: { type: DataTypes.DECIMAL, allowNull: false },
-        type: { type: DataTypes.STRING, allowNull: false }
-    });
-    
+        TableId: DataTypes.INTEGER,
+        status_order: DataTypes.STRING
+    }, {});
+    Order.associate = function (models) {
+        Order.hasMany(models.Order_Itens);
+    };
     return Order;
 };
