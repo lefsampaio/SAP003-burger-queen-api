@@ -8,9 +8,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      clientName: {
+        type: Sequelize.STRING
+      },
       TableId: {
         type: Sequelize.INTEGER,
-        references: {model:'Table', key:'id'}
+        references: { model: 'Table', key: 'id' }
       },
       status_order: {
         type: Sequelize.STRING
