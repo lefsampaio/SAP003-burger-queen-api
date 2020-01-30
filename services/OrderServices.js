@@ -5,8 +5,8 @@ class OrderService {
     try {
       return await database.Order.findAll({
         include: [
-          { model: database.Table, as: 'table' },
-          { model: database.Product, as: 'products', duplicating: true }
+          { model: database.Tables, as: 'Table' },
+          { model: database.Product, as: 'Product', duplicating: true }
         ],
       })
     } catch (error) {
@@ -17,12 +17,12 @@ class OrderService {
 
   static async addOrder(newOrder) {
     try {
-      const order = await database.Order.create({ table_id: newOrder.table_id });
-      await order.addProducts(newOrder.products);
+      return await database.Order.create(newOrder)
     } catch (error) {
       throw error
     }
   }
+
 
   static async updateOrder(id, updateOrder) {
     try {

@@ -13,7 +13,7 @@ module.exports = {
       },
       TableId: {
         type: Sequelize.INTEGER,
-        references: { model: 'Table', key: 'id' }
+        references: { model: 'Tables', key: 'id' }
       },
       status_order: {
         type: Sequelize.STRING
