@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     number: DataTypes.INTEGER
   }, {});
   Tables.associate = function(models) {
-    Tables.hasMany(models.Orders);
+    Tables.hasMany(models.Orders)
   };
   return Tables;
 };

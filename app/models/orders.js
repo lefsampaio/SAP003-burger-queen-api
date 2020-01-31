@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     Orders.associate = function (models) {
         Orders.belongsToMany(models.Products, { through: "Order_Itens" });
         Orders.belongsTo(models.Tables);
+
     };
     return Orders;
 };
