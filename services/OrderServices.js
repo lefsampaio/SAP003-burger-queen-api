@@ -3,10 +3,10 @@ const database = require('../app/models');
 class OrderService {
   static async getAllOrders() {
     try {
-      return await database.Order.findAll({
+      return await database.Orders.findAll({
         include: [
           { model: database.Tables, as: 'Table' },
-          { model: database.Product, as: 'Product', duplicating: true }
+          { model: database.Products, duplicating: true }
         ],
       })
     } catch (error) {
@@ -17,7 +17,7 @@ class OrderService {
 
   static async addOrder(newOrder) {
     try {
-      return await database.Order.create(newOrder)
+      return await database.Orders.create(newOrder)
     } catch (error) {
       throw error
     }
@@ -26,12 +26,12 @@ class OrderService {
 
   static async updateOrder(id, updateOrder) {
     try {
-      const OrderToUpdate = await database.Order.findOne({
+      const OrderToUpdate = await database.Orders.findOne({
         where: { id: Number(id) }
       })
 
       if (OrderToUpdate) {
-        await database.Order.update(updateOrder, { where: { id: Number(id) } })
+        await database.Orders.update(updateOrder, { where: { id: Number(id) } })
 
         return updateOrder
       }
@@ -43,7 +43,7 @@ class OrderService {
 
   static async getOrder(id) {
     try {
-      const theOrder = await database.Order.findOne({
+      const theOrder = await database.Orders.findOne({
         where: { id: Number(id) }
       })
 
@@ -55,10 +55,10 @@ class OrderService {
 
   static async deleteOrder(id) {
     try {
-      const OrderToDelete = await database.Order.findOne({ where: { id: Number(id) } })
+      const OrderToDelete = await database.Orders.findOne({ where: { id: Number(id) } })
 
       if (OrderToDelete) {
-        const deletedOrder = await database.Order.destroy({
+        const deletedOrder = await database.Orders.destroy({
           where: { id: Number(id) }
         })
         return deletedOrder

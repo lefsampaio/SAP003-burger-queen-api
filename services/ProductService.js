@@ -3,7 +3,7 @@ const database = require('../app/models');
 class ProductService {
   static async getAllProducts() {
     try {
-      return await database.Product.findAll()
+      return await database.Products.findAll()
     } catch (error) {
       throw error
     }
@@ -11,7 +11,7 @@ class ProductService {
 
   static async addProduct(newProduct) {
     try {
-      return await database.Product.create(newProduct)
+      return await database.Products.create(newProduct)
     } catch (error) {
       throw error
     }
@@ -19,12 +19,12 @@ class ProductService {
 
   static async updateProduct(id, updateProduct) {
     try {
-      const ProductToUpdate = await database.Product.findOne({
+      const ProductToUpdate = await database.Products.findOne({
         where: { id: Number(id) }
       })
 
       if (ProductToUpdate) {
-        await database.Product.update(updateProduct, { where: { id: Number(id) } })
+        await database.Products.update(updateProduct, { where: { id: Number(id) } })
 
         return updateProduct
       }
@@ -36,7 +36,7 @@ class ProductService {
 
   static async getProduct(id) {
     try {
-      const theProduct = await database.Product.findOne({
+      const theProduct = await database.Products.findOne({
         where: { id: Number(id) }
       })
 
@@ -48,10 +48,10 @@ class ProductService {
 
   static async deleteProduct(id) {
     try {
-      const ProductToDelete = await database.Product.findOne({ where: { id: Number(id) } })
+      const ProductToDelete = await database.Products.findOne({ where: { id: Number(id) } })
 
       if (ProductToDelete) {
-        const deletedProduct = await database.Product.destroy({
+        const deletedProduct = await database.Products.destroy({
           where: { id: Number(id) }
         })
         return deletedProduct
