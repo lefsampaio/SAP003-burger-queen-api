@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "nodemon index.js --exec babel-node",
     "test": "jest",
-    "start": "babel-node index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
