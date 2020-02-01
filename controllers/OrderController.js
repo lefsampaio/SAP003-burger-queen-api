@@ -1,5 +1,5 @@
 const OrderService = require('../services/OrderServices')
-const Util = require('../utils/Utils')
+const Util = require('../utils/utils')
 
 const util = new Util()
 

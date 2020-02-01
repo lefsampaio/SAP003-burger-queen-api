@@ -1,5 +1,5 @@
 const ProductService = require('../services/ProductService')
-const Util = require('../utils/Utils')
+const Util = require('../utils/utils')
 
 const util = new Util()
 

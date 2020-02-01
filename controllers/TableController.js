@@ -1,5 +1,5 @@
 const TableService = require('../services/TableService')
-const Util = require('../utils/Utils')
+const Util = require('../utils/utils')
 
 const util = new Util()
 
